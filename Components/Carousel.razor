@@ -1,0 +1,191 @@
+﻿@page "/Carousel"
+
+@for (var j = 2; j > 0; j--)
+{
+    //Last topic in list - hide two other cards
+    if ((cardImages.Count - 1) == i)
+    {
+        <div style="opacity:0">
+            <div class="card" style="margin-left:10px; max-height:515px; max-width:800px">
+                <div>
+                    <img class="card-img-top" src="images/@cardImages[0]">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <div style="overflow-y:auto">
+                        <h5 class="card-title" style="text-shadow: 1px 0px 1px white">@cardTitles[0]</h5>
+                        <p class="card-text" style="text-shadow: 1px 0px 1px white">@cardText[0]</p>
+                    </div>
+                    <div class="my-auto" style="padding-top:10px">
+                        <a href="/" class="mt-auto btn btn-primary disabled" style="background-color:orangered; text-shadow:1px 1px black">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="opacity:0">
+            <div class="card" style="margin-left:10px; max-height:515px; max-width:800px">
+                <div>
+                    <img class="card-img-top" src="images/@cardImages[0]">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <div style="overflow-y:auto">
+                        <h5 class="card-title" style="text-shadow: 1px 0px 1px white">@cardTitles[0]</h5>
+                        <p class="card-text" style="text-shadow: 1px 0px 1px white">@cardText[0]</p>
+                    </div>
+                    <div class="my-auto" style="padding-top:10px">
+                        <a href="/" class="mt-auto btn btn-primary disabled" style="background-color:orangered; text-shadow:1px 1px black">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        break;
+    }
+    //Second to last topic in list - hide one card
+    else if ((cardImages.Count - 2) == i)
+    {
+        <div style="opacity:0">
+            <div class="card" style="margin-left:10px; max-height:515px; max-width:800px">
+                <div>
+                    <img class="card-img-top" src="images/@cardImages[i + k]">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <div style="overflow-y:auto">
+                        <h5 class="card-title" style="text-shadow: 1px 0px 1px white">@cardTitles[i + k]</h5>
+                        <p class="card-text" style="text-shadow: 1px 0px 1px white">@cardText[i + k]</p>
+                    </div>
+                    <div class="my-auto" style="padding-top:10px">
+                        <a href="/" class="mt-auto btn btn-primary disabled" style="background-color:orangered; text-shadow:1px 1px black">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="opacity:0.6">
+            <div class="card" style="margin-left:10px; max-height:515px; max-width:800px">
+                <div>
+                    <img class="card-img-top" src="images/@cardImages[i + k]">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <div style="overflow-y:auto">
+                        <h5 class="card-title" style="text-shadow: 1px 0px 1px white">@cardTitles[i + k]</h5>
+                        <p class="card-text" style="text-shadow: 1px 0px 1px white">@cardText[i + k]</p>
+                    </div>
+                    <div class="my-auto" style="padding-top:10px">
+                        <a href="/" class="mt-auto btn btn-primary disabled" style="background-color:orangered; text-shadow:1px 1px black">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        break;
+    }
+    else
+    {
+        <div style="opacity:@opaqueness">
+            <div class="card" style="margin-left:10px; max-height:515px; max-width:800px">
+                <div>
+                    <img class="card-img-top" src="images/@cardImages[i + j]">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <div style="overflow-y:auto">
+                        <h5 class="card-title" style="text-shadow: 1px 0px 1px white">@cardTitles[i + j]</h5>
+                        <p class="card-text" style="text-shadow: 1px 0px 1px white">@cardText[i + j]</p>
+                    </div>
+                    <div class="my-auto" style="padding-top:10px">
+                        <a href="/" class="mt-auto btn btn-primary disabled" style="background-color:orangered; text-shadow:1px 1px black">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        opaqueness = opaqueness + 0.4;
+    }
+
+    //Reset the opaqueness after second card is rendered
+    if (j == 1)
+    {
+        opaqueness = 0.2;
+    }
+
+    //If we decide to have a continous loop with the cards
+    @*if ((cardImages.Count - 1) == i)
+        {
+            <div style="opacity:0.5">
+                <div class="card shadow" style="margin-left:10px; max-height:515px; max-width:800px">
+                    <div>
+                        <img class="card-img-top" src="images/@cardImages[j]">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div style="overflow-y:auto">
+                            <h5 class="card-title" style="text-shadow: 1px 0px 1px white">@cardTitles[j]</h5>
+                            <p class="card-text" style="text-shadow: 1px 0px 1px white">@cardText[j]</p>
+                        </div>
+                        <div class="my-auto" style="padding-top:10px">
+                            <a href="/" class="mt-auto btn btn-primary disabled" style="background-color:orangered; text-shadow:1px 1px black">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+        else if ((cardImages.Count - 2) == i)
+        {
+            <div style="opacity:0.5">
+                <div class="card shadow" style="margin-left:10px; max-height:515px; max-width:800px">
+                    <div>
+                        <img class="card-img-top" src="images/@cardImages[0 + k]">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div style="overflow-y:auto">
+                            <h5 class="card-title" style="text-shadow: 1px 0px 1px white">@cardTitles[0 + k]</h5>
+                            <p class="card-text" style="text-shadow: 1px 0px 1px white">@cardText[0 + k]</p>
+                        </div>
+                        <div class="my-auto" style="padding-top:10px">
+                            <a href="/" class="mt-auto btn btn-primary disabled" style="background-color:orangered; text-shadow:1px 1px black">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            k = k + i + 1;
+        }
+        else
+        {
+            <div style="opacity:0.5">
+                <div class="card shadow" style="margin-left:10px; max-height:515px; max-width:800px">
+                    <div>
+                        <img class="card-img-top" src="images/@cardImages[i + j]">
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div style="overflow-y:auto">
+                            <h5 class="card-title" style="text-shadow: 1px 0px 1px white">@cardTitles[i + j]</h5>
+                            <p class="card-text" style="text-shadow: 1px 0px 1px white">@cardText[i + j]</p>
+                        </div>
+                        <div class="my-auto" style="padding-top:10px">
+                            <a href="/" class="mt-auto btn btn-primary disabled" style="background-color:orangered; text-shadow:1px 1px black">See More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }*@
+}
+
+@code {
+
+    private int k { get; set; } = 1;
+
+    private double opaqueness { get; set; } = 0.2;
+
+    [CascadingParameter(Name = "i")]
+    private int i { get; set; }
+
+    [CascadingParameter(Name = "CardImages")]
+    private List<string> cardImages { get; set; }
+
+    [CascadingParameter(Name = "CardTitles")]
+    private List<string> cardTitles { get; set; }
+
+    [CascadingParameter(Name = "CardText")]
+    private List<string> cardText { get; set; }
+
+}

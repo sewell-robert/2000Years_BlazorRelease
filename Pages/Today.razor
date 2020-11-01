@@ -1,0 +1,86 @@
+﻿@page "/Today"
+
+<style>
+    .keep-same-line {
+        white-space: nowrap;
+    }
+</style>
+
+<br />
+<div class="d-flex">
+    <div class="col-md-4">
+        <CascadingValue Value="VideoName" Name="VideoName">
+            <MenuPortal></MenuPortal>
+        </CascadingValue>
+    </div>
+    <div class="ml-auto">
+        <a><h2 class="keep-same-line" style="padding-top:15px">Today - @CurrentYear A.D.</h2></a>
+    </div>
+</div>
+<hr />
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-end">
+
+        <CascadingValue Value="PageName" Name="PageName">
+            <CascadingValue Value="CardImages" Name="CardImages">
+                <CascadingValue Value="CardTitles" Name="CardTitles">
+                    <CascadingValue Value="CardText" Name="CardText">
+                        <CascadingValue Value="BlockTitles" Name="BlockTitles">
+                            <CascadingValue Value="BlockText" Name="BlockText">
+                                <TopicList items="Items" />
+                            </CascadingValue>
+                        </CascadingValue>
+                    </CascadingValue>
+                </CascadingValue>
+            </CascadingValue>
+        </CascadingValue>
+
+    </div>
+</div>
+
+@code {
+
+    //Pass in today's date
+    DateTime CurrentYear = DateTime.Now;
+
+    //Pass Page Name to Components
+    string PageName = "Today";
+
+    //Pass Video Name to Menu Portal
+    string VideoName = "candles.mp4";
+
+    //Topic List Items
+    private List<string> Items = new List<string>() { "Hail Mary" };
+
+    //Content for Topic Cards
+    List<string> CardImages = new List<string>()
+{
+        "rosary.jpg"
+    };
+
+    List<string> CardTitles = new List<string>()
+{
+        "Praying to an idol? Not exactly. Asking for intercession? Actually, yes, and much more."
+    };
+
+    List<string> CardText = new List<string>()
+{
+        "The Church's devotion to Mary, the Mother of God, has grown throughout history, yet so many of today's Christians are troubled by it. Discover powerful testimonies of encounters with the Queen of Peace and the endless graces received when praying the Rosary."
+    };
+
+    //Content for Topic Blocks
+    List<string> BlockTitles = new List<string>()
+{
+        ""
+    };
+
+    List<string> BlockText = new List<string>()
+{
+        "<iframe width='700' height='420' src='https://www.youtube.com/embed/EWDevlijGUI' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+    };
+
+
+
+}
+

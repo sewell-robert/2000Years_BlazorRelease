@@ -1,0 +1,50 @@
+﻿@page "/Intro"
+@inject IJSRuntime JSRuntime
+
+<style>
+    .overlay {
+        background: rgba(0,0,0,0);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h3 {
+        color: white;
+        text-shadow: 0px 1px 3px black;
+        /*font-family: 'Nobile', sans-serif;*/
+        text-align: center;
+    }
+
+    .container-fluid {
+        padding: 0px;
+        margin: 0px;
+        height: 75%;
+    }
+</style>
+
+<div class="container-fluid border-dark">
+    <center>
+        <video style="width:100%" muted autoplay>
+            <source src="video/intro.mp4" type="video/mp4" />
+        </video>
+    </center>
+
+    <div class="overlay text1">
+        <h3 id="txt">The year is 110 AD . . .</h3>
+    </div>
+</div>
+
+@code {
+    //protected string introText = "";
+
+    protected override async void OnInitialized()
+    {
+        await JSRuntime.InvokeAsync<object>("onBlazorReady");
+    }
+}

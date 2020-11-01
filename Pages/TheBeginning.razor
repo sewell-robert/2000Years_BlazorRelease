@@ -1,0 +1,102 @@
+﻿@page "/"
+@page "/TheBeginning"
+
+<style>
+    .keep-same-line {
+        white-space: nowrap;
+    }
+</style>
+
+<br />
+<div class="d-flex">
+    <div class="col-md-4">
+        <CascadingValue Value="IsTheBeginning" Name="IsTheBeginning">
+            <CascadingValue Value="VideoName" Name="VideoName">
+                <MenuPortal></MenuPortal>
+            </CascadingValue>
+        </CascadingValue>
+    </div>
+    <div class="ml-auto">
+        <a id="early_fathers"><h2 class="keep-same-line" style="padding-top:15px">The Beginning - 49 A.D.</h2></a>
+    </div>
+</div>
+<hr />
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-end">
+
+        <CascadingValue Value="PageName" Name="PageName">
+            <CascadingValue Value="CardImages" Name="CardImages">
+                <CascadingValue Value="CardTitles" Name="CardTitles">
+                    <CascadingValue Value="CardText" Name="CardText">
+                        <CascadingValue Value="BlockTitles" Name="BlockTitles">
+                            <CascadingValue Value="BlockText" Name="BlockText">
+                                <TopicList items="Items" />
+                            </CascadingValue>
+                        </CascadingValue>
+                    </CascadingValue>
+                </CascadingValue>
+            </CascadingValue>
+        </CascadingValue>
+
+    </div>
+</div>
+
+<div style="position:absolute; bottom:0px;width: 100%">
+    <div class="progress" style="height:20px">
+        <div class="progress-bar bg-dark" style="width:80%;height:20px">Created by Bobby and Klaudia</div>
+    </div>
+</div>
+
+@code {
+
+    //Pass Bool to Menu Portal (workaround to get video to play on first page load)
+    bool IsTheBeginning = true;
+
+    //Pass Page Name to Components
+    string PageName = "TheBeginning";
+
+    //Pass Video Name to Menu Portal
+    string VideoName = "night_sky.mp4";
+
+    //Topic List Items
+    private List<string> Items = new List<string>() { "The Early Fathers", "The Desert Fathers", "Transubstantiation" };
+
+    //Content for Topic Cards
+    List<string> CardImages = new List<string>()
+{
+        "empty_altar.jpg",
+        "stained_glass.jpg",
+        "crucifix.jpg"
+    };
+
+    List<string> CardTitles = new List<string>()
+{
+        "Who were the Early Church Fathers?",
+        "Who were the Desert Fathers?",
+        "Transubstantiation"
+    };
+
+    List<string> CardText = new List<string>()
+{
+        "Lorem ipsum dolor sit amet, ne vim natum splendide, ea eos meis malis tacimates, quo nostro voluptua et.",
+        "Some example text.",
+        "Some example text."
+    };
+
+    //Content for Topic Blocks
+    List<string> BlockTitles = new List<string>()
+{
+        "Who were the Early Church Fathers?",
+        "Who were the Desert Fathers?",
+        "What is it and Why is it so significant?"
+    };
+
+    List<string> BlockText = new List<string>()
+{
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    };
+
+}

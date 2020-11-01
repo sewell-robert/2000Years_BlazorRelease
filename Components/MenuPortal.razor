@@ -1,0 +1,93 @@
+﻿<style>
+    .list-group-item-color {
+        background-color: #1a1a1a;
+        color: #fff;
+        border-color: #fff;
+    }
+
+    .list-group-hover .list-group-item:hover {
+        color: orangered;
+        border-color: orangered;
+        text-decoration: none;
+    }
+
+    .btn-primary {
+        background-color: orangered;
+    }
+
+    .menu-text {
+        font-size: larger;
+        letter-spacing: 3px;
+        color: #fff;
+        text-shadow: 1px 1px 1px black;
+    }
+
+    #bottom-menu-item {
+        border-bottom: 2px solid #1a1a1a;
+    }
+
+        #bottom-menu-item:hover {
+            border-bottom-color: orangered;
+        }
+</style>
+
+<div style="height:150px; white-space:nowrap; margin-right:10px; position:absolute; z-index:100">
+    <button class="btn btn-primary menu-text" @onclick="ToggleMenu">
+        <strong>&#9776;</strong>&nbsp; Timeline
+    </button>
+
+    <div class="@MenuVisibility" style="background-color:#1a1a1a">
+        <div>
+            @if (isTheBeginning)
+            {
+                <video style="width:100%" muted autoplay loop>
+                    <source src="video/night_sky.mp4" type="video/mp4" />
+                </video>
+            }
+            else
+            {
+                <video style="width:100%" muted autoplay loop>
+                    <source src="video/@videoName" type="video/mp4" />
+                </video>
+            }
+        </div>
+
+        <div class="list-group list-group-flush list-group-hover">
+            <a href="/TheBeginning" class="list-group-item list-group-item-color menu-text" @onclick="BeginPagePrep">THE BEGINNING</a>
+            <a href="/TheMiddleAges" class="list-group-item list-group-item-color menu-text" @onclick="BeginPagePrep">THE MIDDLE AGES</a>
+            <a href="/Page3" class="list-group-item list-group-item-color menu-text" @onclick="BeginPagePrep">PAGE 3</a>
+            <a href="/Page4" class="list-group-item list-group-item-color menu-text" @onclick="BeginPagePrep">PAGE 4</a>
+            <a href="/Today" id="bottom-menu-item" class="list-group-item list-group-item-color menu-text" @onclick="BeginPagePrep">TODAY</a>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+    [CascadingParameter(Name = "IsTheBeginning")]
+    public bool isTheBeginning { get; set; } = false;
+
+    private string MenuVisibility = "invisible";
+
+    [CascadingParameter(Name = "VideoName")]
+    private string videoName { get; set; }
+
+    public void BeginPagePrep(MouseEventArgs e)
+    {
+        MenuVisibility = "visible";
+    }
+
+    private void ToggleMenu()
+    {
+        if (MenuVisibility == "invisible")
+        {
+            MenuVisibility = "visible";
+        }
+        else
+        {
+            MenuVisibility = "invisible";
+        }
+    }
+
+}

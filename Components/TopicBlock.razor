@@ -1,0 +1,28 @@
+﻿@if (@blockVisibility == "invisible")
+{
+    <Carousel></Carousel>
+}
+else
+{
+    <div class="container border @blockVisibility" style="max-height: 515px; overflow-y:auto">
+        <h4>@blockTitles[i]</h4>
+        <p style="font-size:larger; line-height:30px">@blockText[i]</p>
+        <iframe width="700" height="420" src="https://www.youtube.com/embed/EWDevlijGUI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+}
+
+@code {
+
+    [CascadingParameter(Name = "i")]
+    private int i { get; set; }
+
+    [CascadingParameter]
+    private string blockVisibility { get; set; }
+
+    [CascadingParameter(Name = "BlockTitles")]
+    private List<string> blockTitles { get; set; }
+
+    [CascadingParameter(Name = "BlockText")]
+    private List<string> blockText { get; set; }
+
+}

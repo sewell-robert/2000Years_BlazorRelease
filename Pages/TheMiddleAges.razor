@@ -1,0 +1,113 @@
+﻿@page "/TheMiddleAges"
+
+<style>
+    .keep-same-line {
+        white-space: nowrap;
+    }
+</style>
+
+<br />
+<div class="d-flex">
+    <div class="col-md-4">
+        <CascadingValue Value="VideoName" Name="VideoName">
+            <MenuPortal></MenuPortal>
+        </CascadingValue>
+    </div>
+    <div class="ml-auto">
+        <a><h2 class="keep-same-line" style="padding-top:15px">The Middle Ages - 500 A.D.</h2></a>
+    </div>
+</div>
+<hr />
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-end">
+
+        <CascadingValue Value="PageName" Name="PageName">
+            <CascadingValue Value="CardImages" Name="CardImages">
+                <CascadingValue Value="CardTitles" Name="CardTitles">
+                    <CascadingValue Value="CardText" Name="CardText">
+                        <CascadingValue Value="BlockTitles" Name="BlockTitles">
+                            <CascadingValue Value="BlockText" Name="BlockText">
+                                <TopicList items="Items" />
+                            </CascadingValue>
+                        </CascadingValue>
+                    </CascadingValue>
+                </CascadingValue>
+            </CascadingValue>
+        </CascadingValue>
+
+    </div>
+</div>
+
+@code {
+
+    //Pass Page Name to Components
+    string PageName = "TheMiddleAges";
+
+    //Pass Video Name to Menu Portal
+    string VideoName = "candles.mp4";
+
+    //Topic List Items
+    private List<string> Items = new List<string>() { "The Crusades", "Catholic Scientists", "The Black Death", "Eygyptian Obelisk" };
+
+    //Content for Topic Cards
+    List<string> CardImages = new List<string>()
+{
+        "armour.jpg",
+        "eclipse2.jpg",
+        "skulls.jpg",
+        "arches.jpg"
+    };
+
+    List<string> CardTitles = new List<string>()
+{
+        "What do unbiased historians really say about this event?",
+        "Why are so many wrong in thinking religion and science do not mix?",
+        "How was the Church affected by this plague?",
+        "The Egyptian Obelisk"
+    };
+
+    List<string> CardText = new List<string>()
+{
+        "Lorem ipsum dolor sit amet, ne vim natum splendide, ea eos meis malis tacimates, quo nostro voluptua et.",
+        "Lorem ipsum dolor sit amet, ne vim natum splendide, ea eos meis malis tacimates, quo nostro voluptua et.",
+        "Lorem ipsum dolor sit amet, ne vim natum splendide, ea eos meis malis tacimates, quo nostro voluptua et.",
+        "Lorem ipsum dolor sit amet, ne vim natum splendide, ea eos meis malis tacimates, quo nostro voluptua et."
+    };
+
+    //Content for Topic Blocks
+    List<string> BlockTitles = new List<string>()
+{
+        "What do unbiased historians really say about this event?",
+        "Why are so many wrong in thinking religion and science do not mix?",
+        "What role did the Church play in the worst epidemic in history?",
+        "Why do Catholics keep one at the front door of the Vatican?"
+    };
+
+    List<string> BlockText = new List<string>()
+{
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    };
+
+}
+
+
+@*<br />
+    <br />
+    <div class="float-right">
+        <a id="desert_fathers"><h2>The Middle Ages - 500 A.D.</h2></a>
+    </div>
+    <br />
+    <hr />
+
+    <div class="card float-right" style="width:400px">
+        <img class="card-img-top" src="images/stained_glass.jpg" alt="Empty Altar">
+        <div class="card-body">
+            <h4 class="card-title">First Practice of Meditation</h4>
+            <p class="card-text">Some example text.</p>
+            <a href="#" class="btn btn-primary">See More</a>
+        </div>
+    </div>*@

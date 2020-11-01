@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>2000Years</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+
+    <link href="css/lux/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/site.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <app>Loading...</app>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+
+    <script>
+        function onBlazorReady() {
+            $(document).ready(function () {
+                $("div.text1").fadeOut(6000, renderText2);
+            });
+        }
+
+        function renderText2() {
+            txt.innerText = "A bishop from Antioch in Syria is arrested and brought to Rome";
+            $("div.text1").fadeIn(5000, fadeOutText2);
+        }
+
+        function fadeOutText2() {
+            $("div.text1").fadeOut(5000, renderText3);
+        }
+
+        function renderText3() {
+            txt.innerText = "Shortly before he is murdered for his refusal to renounce his beliefs";
+            $("div.text1").fadeIn(5000, fadeOutText3);
+        }
+
+        function fadeOutText3() {
+            $("div.text1").fadeOut(5000, renderText4);
+        }
+
+        function renderText4() {
+            txt.innerText = "He writes a letter to his fellow Christians in which he says";
+            $("div.text1").fadeIn(5000, fadeOutText4);
+        }
+
+        function fadeOutText4() {
+            $("div.text1").fadeOut(5000, renderText5);
+        }
+
+        function renderText5() {
+            txt.innerHTML = "<blockquote class='blockquote text-center' style='border-left:none'><h3 class='mb-0'><br /><br /><br />Wherever Jesus Christ is, there is the Catholic Church.<br /><br /></h3><footer class='blockquote-footer blockquote-footer-style'>St. Ignatius of Antioch</footer></blockquote><div class='btn1 hidden'><button class='btn btn-success' onclick='location.href='#early_fathers'><h4>Continue the Journey</h4><i class='fa fa-angle-double-down' style='font-size:36px'></i></button></div>";
+            $("div.text1").fadeIn(5000, renderActionButton).delay(9000);
+        }
+
+        function renderActionButton() {
+            $("div.btn1").delay("slow").animate({ opacity: '0.95' });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+﻿<CascadingValue Value="i" Name="i">
+    <TopicCard></TopicCard>
+</CascadingValue>
+
+<div class="list-group list-group-flush col-md-2" style="text-align:right">
+    @foreach (var item in items)
+    {
+        if (item == items[i])
+        {
+            <a href="/@pageName" class="list-group-item list-group-item-action align-self-stretch active" @onclick="@(() => SetIndex(items.IndexOf(item)))">@item</a>
+        }
+        else
+        {
+            <a href="/@pageName" class="list-group-item list-group-item-action" @onclick="@(() => SetIndex(items.IndexOf(item)))">@item</a>
+        }
+    }
+</div>
+
+@code {
+
+    [CascadingParameter(Name = "PageName")]
+    private string pageName { get; set; }
+
+    [Parameter]
+    public List<string> items { get; set; }
+
+    public int i { get; set; } = 0;
+
+    public void SetIndex(int index)
+    {
+        i = index;
+    }
+
+}

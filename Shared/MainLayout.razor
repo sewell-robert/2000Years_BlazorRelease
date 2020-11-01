@@ -1,0 +1,45 @@
+﻿@inherits LayoutComponentBase
+
+<style>
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #fff;
+        color: #1a1a1a;
+        text-align: center;
+        border-top: 1px solid #1a1a1a;
+    }
+</style>
+
+@*<div class="sidebar">
+    <NavMenu />
+</div>*@
+
+<div class="flex">
+    <div>
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="content px-4">
+            @Body
+        </div>
+    </div>
+</div>
+
+@*<div class="footer">
+        <p style="padding-top:15px">&copy; 2020 - Designed and Coded by Bobby Sewell</p>
+    </div>*@
+
+@code {
+    [Inject]
+    protected IJSRuntime JsRuntime { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+            JsRuntime.InvokeVoidAsync("onBlazorReady");
+    }
+}
